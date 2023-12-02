@@ -1,0 +1,46 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsfonts,amsmath}
+\usepackage{tikz,pgfplots}
+
+\def\quadraticformula{ax^2+bx+c=0}
+
+% Increase vertical space between items in list.
+% \newcommand{cmd}[args]{def}
+% \setlength is a command used to set the value of a length parameter.
+%   It is typically used to control spacing and dimensions in a document.
+% \itemsep is a length parameter that represents the space between items in a list.
+%   It is commonly used to adjust the spacing between items in lists such as in `itemize' or
+%   `enumerate` environments.
+\newcommand{\set}[1]{\setlength\itemsep{#1em}}
+
+\newcommand\calculator{\tikz{
+  \node (c) [inner sep=0pt, draw, fill=black, anchor=south west]{\phantom{N}};
+  \begin{scope}[x=(c.south east),y=(c.north west)]    \fill[white] (.1,.7) rectangle (.9,.9);    
+  \foreach \x in {.1, .33, .55, .79}{    
+  \foreach \y in {.1, .24, .38, .53}{    
+  \fill[white] (\x,\y) rectangle +(.11,.07);}} 
+  \end{scope} }}
+  \def\calcicon#1{\noindent#1 \calculator\ }
+
+\begin{document}
+  \section*{Critical Thinking Questions}
+
+  \begin{enumerate}
+    \set{1.2}
+    \item \calculator\ This is the symbol for the set of all real numbers: $\mathbb{R}$
+    \item This is the symbol for the set of integers: $\mathbb{Z}$
+    \item This is the symbol for the set of rational numbers: $\mathbb{Q}$
+    \item The quadratic formula is $\quadraticformula$
+    \item Is it possible for a sequence to converge to two different numbers? If so, give an example. If not, explain why not.
+    \item Explain how to use partial sums to determine if a series converges or diverges. Give an example.
+  \end{enumerate}
+
+  \section*{Fractions Demo}
+
+  This is the $\frac{x}{3x^2+x+1}$ equation.
+
+  \vspace{0.4cm}
+  This is the $\dfrac{x}{3x^2+x+1}$ equation.
+
+\end{document}
